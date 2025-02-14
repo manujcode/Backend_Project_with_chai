@@ -1,9 +1,9 @@
 import mongoose  ,{Schema} from "mongoose";
-import { type } from "os";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 const userSchema = new Schema({
     username :{
-        type:string,
+        type:String,
         required:true,
         unique:true,
         trim:true,
@@ -11,35 +11,35 @@ const userSchema = new Schema({
         index:true,
     },
     email:{
-        type:string,
+        type:String,
         required:true,
         unique:true,
         trim:true,
         lowercase:true,
     },
     fullname:{
-        type:string,
+        type:String,
         required:true,
         trim:true,
         index:true,
     },
-    avtar:{
-        type:string,
+    avatar:{
+        type:String,
          required:true, 
         },
         coverImage:{
-            type:string,
+            type:String,
         },
     watchHistory:[{
         type:Schema.Types.ObjectId,
         ref:"Video"
     }],
     password:{
-        type:string,
+        type:String,
         required:[true,"password is required"],
     },
     refreshToken:{
-        type:string,
+        type:String,
     },
 
 
